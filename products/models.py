@@ -9,7 +9,7 @@ class Product(models.Model):
     icon = models.ImageField(upload_to = 'images/')
     url = models.TextField()
     votes_total = models.IntegerField(default=1)
-    hunter = models.ForeignKey(User, on_delete=models.CASCADE)
+    hunter = models.ForeignKey(User, on_delete=models.CASCADE, db_column='hunter', default=0)
 
     def pub_date_pretty(self):      #makes date pretty, look up strftime references
         return self.pub_date.strftime( '%b %e %Y' )
